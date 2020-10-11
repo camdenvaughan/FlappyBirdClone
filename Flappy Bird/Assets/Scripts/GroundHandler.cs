@@ -2,7 +2,7 @@
 
 public class GroundHandler : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    readonly float moveSpeed = 2.5f;
     BirdController bird;
 
     private void Awake()

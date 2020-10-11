@@ -4,23 +4,37 @@ using UnityEngine.UI;
 public class BirdController : MonoBehaviour
 {
     Rigidbody2D rb;
-    bool jump;
-    [SerializeField] float jumpForce;
-    [SerializeField] float tiltSmooth;
-    public int score = 0;
+    Animator anim;
+    Text scoreText;
 
-    public Text scoreText;
+
+    readonly float jumpForce = 5f;
+    readonly float tiltSmooth = 1f;
+    bool jump;
+
 
     Quaternion downRotation;
     Quaternion forwardRotation;
 
+
+    [HideInInspector] public int score = 0;
+
+
     public bool dead = false;
+
+    private void Awake()
+    {
+        scoreText = GameObject.FindGameObjectWithTag("Score_Text").GetComponent<Text>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         dead = false;
+
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
         downRotation = Quaternion.Euler(0f, 0f, -90f);
         forwardRotation = Quaternion.Euler(0f, 0f, 35f);
     }
@@ -30,6 +44,7 @@ public class BirdController : MonoBehaviour
     {
         HandleInput();
         Rotate();
+        OnDeath();
     }
 
     private void FixedUpdate()
@@ -73,4 +88,12 @@ public class BirdController : MonoBehaviour
         }
     }
 
+    void OnDeath()
+    {
+        if (dead)
+        {
+            anim.enabled = false;
+        }
+        
+    }
 }

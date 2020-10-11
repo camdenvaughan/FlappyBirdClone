@@ -2,8 +2,8 @@
 
 public class PipeHandler : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
-    [SerializeField] Vector2 randRange;
+    readonly float moveSpeed = 2.5f;
+    Vector2 randRange;
     float randY;
     BirdController bird;
 
@@ -15,6 +15,7 @@ public class PipeHandler : MonoBehaviour
 
     private void Start()
     {
+        randRange = new Vector2(3f, -1f);
         randY = Random.Range(randRange.x, randRange.y);
         transform.position = new Vector3(transform.position.x, randY, transform.position.z);
     }

@@ -2,9 +2,14 @@
 
 public class PipeSpawner : MonoBehaviour
 {
-    [SerializeField] float spawnX;
-    [SerializeField] Vector2 randRange;
+    readonly float spawnX = 7f;
+    Vector2 randRange;
     float randY;
+
+    private void Start()
+    {
+        randRange = new Vector2(3f, -1f);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

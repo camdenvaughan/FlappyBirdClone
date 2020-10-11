@@ -2,7 +2,13 @@
 
 public class GroundSpawner : MonoBehaviour
 {
-    [SerializeField] Vector2 spawnPosition;
+    Vector2 spawnPosition;
+
+    private void Start()
+    {
+        spawnPosition = new Vector2(15.25f, -4.5f);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Ground"))

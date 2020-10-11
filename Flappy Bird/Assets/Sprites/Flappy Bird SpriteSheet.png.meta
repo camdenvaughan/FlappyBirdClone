@@ -23,6 +23,33 @@ TextureImporter:
   - first:
       213: -7381541362081341492
     second: Flappy Bird SpriteSheet_6
+  - first:
+      213: -4969182916990023310
+    second: Flappy Bird SpriteSheet_0
+  - first:
+      213: 5860658836611847838
+    second: Flappy Bird SpriteSheet_1
+  - first:
+      213: 7479945565817489584
+    second: Flappy Bird SpriteSheet_2
+  - first:
+      213: -7277984873542182856
+    second: Flappy Bird SpriteSheet_3
+  - first:
+      213: 4718424223140858572
+    second: Flappy Bird SpriteSheet_4
+  - first:
+      213: -4289586631445544668
+    second: Flappy Bird SpriteSheet_5
+  - first:
+      213: -6099070754474861531
+    second: Flappy Bird SpriteSheet_6
+  - first:
+      213: 2673389400672390908
+    second: Flappy Bird SpriteSheet_7
+  - first:
+      213: -7514818783361573504
+    second: Flappy Bird SpriteSheet_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -146,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ae277211cea573f0800000000000000
-      internalID: -903624005956194649
+      spriteID: 279ced0077ae90bb0800000000000000
+      internalID: -4969182916990023310
       vertices: []
       indices: 
       edges: []
@@ -167,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc10475cfa64f5740800000000000000
-      internalID: 5142907020226331083
+      spriteID: e96d00a292e355150800000000000000
+      internalID: 5860658836611847838
       vertices: []
       indices: 
       edges: []
@@ -188,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e345c3c0e7d46ae00800000000000000
-      internalID: 1055616366431458366
+      spriteID: 0b84fc59cda1ec760800000000000000
+      internalID: 7479945565817489584
       vertices: []
       indices: 
       edges: []
@@ -209,29 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea346f904b2a86d70800000000000000
-      internalID: 9036651546463847342
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Flappy Bird SpriteSheet_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f9a328f2300f30c0800000000000000
-      internalID: -4593952875983164937
+      spriteID: 8381ad361576ffa90800000000000000
+      internalID: -7277984873542182856
       vertices: []
       indices: 
       edges: []
@@ -240,10 +246,10 @@ TextureImporter:
       name: Flappy Bird SpriteSheet_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
+        x: 17
+        y: 19
+        width: 31
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc792c58df6d13b0800000000000000
-      internalID: -5540148991546000164
+      spriteID: 4218c679fa35874c0800000000000000
+      internalID: -4289586631445544668
       vertices: []
       indices: 
       edges: []
@@ -272,8 +278,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccfd9428d3f7f8990800000000000000
-      internalID: -7381541362081341492
+      spriteID: 52c5d8b867fbb5ba0800000000000000
+      internalID: -6099070754474861531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flappy Bird SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 3
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ddc4ab12006b790800000000000000
+      internalID: -7514818783361573504
       vertices: []
       indices: 
       edges: []

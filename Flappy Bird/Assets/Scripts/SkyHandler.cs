@@ -2,7 +2,7 @@
 
 public class SkyHandler : MonoBehaviour
 {
-    [SerializeField] float moveSpeed;
+    readonly float moveSpeed = 0.3f;
     BirdController bird;
 
     private void Awake()

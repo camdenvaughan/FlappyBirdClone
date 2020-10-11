@@ -8,6 +8,7 @@ TagManager:
   - Pipe
   - Score_Trigger
   - Sky
+  - Score_Text
   layers:
   - Default
   - TransparentFX
