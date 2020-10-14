@@ -5,7 +5,9 @@ public class BirdController : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
-    Text scoreText;
+    [HideInInspector] public Text scoreText;
+
+    Animator tutorialText;
 
 
     readonly float jumpForce = 5f;
@@ -17,26 +19,31 @@ public class BirdController : MonoBehaviour
     Quaternion forwardRotation;
 
 
-    [HideInInspector] public int score = 0;
+    public int score = 0;
+    public int highScore;
 
-
-    public bool dead = false;
+    [HideInInspector] public bool waitingForInput;
+    [HideInInspector] public bool dead;
 
     private void Awake()
     {
         scoreText = GameObject.FindGameObjectWithTag("Score_Text").GetComponent<Text>();
+        tutorialText = GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Animator>();
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
         dead = false;
-
+        waitingForInput = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         downRotation = Quaternion.Euler(0f, 0f, -90f);
         forwardRotation = Quaternion.Euler(0f, 0f, 35f);
+
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     // Update is called once per frame
@@ -45,6 +52,8 @@ public class BirdController : MonoBehaviour
         HandleInput();
         Rotate();
         OnDeath();
+        HighScoreUpdate();
+        
     }
 
     private void FixedUpdate()
@@ -54,9 +63,15 @@ public class BirdController : MonoBehaviour
 
     void HandleInput()
     {
+        if (!waitingForInput)
+        {
+            rb.isKinematic = false;
+        }
         if (Input.GetKeyDown(KeyCode.Space) && !dead)
         {
             jump = true;
+            FindObjectOfType<AudioManager>().Play("Flap");
+
         }
     }
 
@@ -64,15 +79,22 @@ public class BirdController : MonoBehaviour
     {
         if (jump && !dead)
         {
+            if (waitingForInput)
+            {
+                waitingForInput = false;
+                tutorialText.SetBool("isStarting", true);
+            }
             rb.velocity = new Vector2(0f, jumpForce);
             transform.rotation = forwardRotation;
             jump = false;
         }
     }
 
+
+
     void Rotate()
     {
-        if (!dead) transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
+        if (!dead && !waitingForInput) transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -80,10 +102,12 @@ public class BirdController : MonoBehaviour
         if (collision.CompareTag("Score_Trigger") && !dead)
         {
             score++;
+            FindObjectOfType<AudioManager>().Play("Score");
             scoreText.text = (score.ToString());
         }
-        if (collision.CompareTag("Pipe"))
+        if (collision.CompareTag("Pipe") || collision.CompareTag("Ground"))
         {
+            FindObjectOfType<AudioManager>().Play("DeathSound");
             dead = true;
         }
     }
@@ -92,8 +116,19 @@ public class BirdController : MonoBehaviour
     {
         if (dead)
         {
+            
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true;
             anim.enabled = false;
         }
         
+    }
+    void HighScoreUpdate()
+    {
+        if (score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", score);
+            highScore = score;
+        }
     }
 }

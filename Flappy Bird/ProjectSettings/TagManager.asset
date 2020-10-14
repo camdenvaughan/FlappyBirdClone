@@ -9,6 +9,10 @@ TagManager:
   - Score_Trigger
   - Sky
   - Score_Text
+  - Score_Display
+  - Retry_Button
+  - Tutorial
+  - High_Score_Text
   layers:
   - Default
   - TransparentFX

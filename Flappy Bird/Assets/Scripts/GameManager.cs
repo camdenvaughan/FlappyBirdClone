@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -8,14 +7,14 @@ public class GameManager : MonoBehaviour
     BirdController bird;
 
     public GameObject endPopUp;
-    public GameObject canvas;
-
+    Text scoreDisplay;
+    Text highScoreDisplay;
     bool gameEnded = false;
+
     // Start is called before the first frame update
     void Start()
     {
         bird = GameObject.FindGameObjectWithTag("Player").GetComponent<BirdController>();
-        canvas = GameObject.FindGameObjectWithTag("Finish");
     }
 
     // Update is called once per frame
@@ -28,8 +27,14 @@ public class GameManager : MonoBehaviour
     {
         if (bird.dead && !gameEnded)
         {
-            //show ui
+            endPopUp.SetActive(true);
+            scoreDisplay = GameObject.FindGameObjectWithTag("Score_Display").GetComponent<Text>();
+            highScoreDisplay = GameObject.FindGameObjectWithTag("High_Score_Text").GetComponent<Text>();
+            scoreDisplay.text = bird.score.ToString();
+            highScoreDisplay.text = ("highscore: " + bird.highScore.ToString());
             gameEnded = true;
+            
         }
     }
+
 }
