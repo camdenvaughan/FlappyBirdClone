@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // Holds the data and variables from the BirdController class
     BirdController bird;
 
+    // Initilization of ui and score details
     public GameObject endPopUp;
     Text scoreDisplay;
     Text highScoreDisplay;
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Attaches bird to the current instantiation of the bird in the scene.
         bird = GameObject.FindGameObjectWithTag("Player").GetComponent<BirdController>();
     }
 
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
         EndGame();
     }
 
+    // Sets endpopup to active and saves and adjusts the highscore if necessary
     void EndGame()
     {
         if (bird.dead && !gameEnded)

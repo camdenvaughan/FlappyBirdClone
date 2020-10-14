@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MenuBackgroundMovement : MonoBehaviour
 {
+    // Summary: Moves all of the background assets on the menu
     readonly float skyMoveSpeed = .3f;
-    readonly float pipeGroundSpeed = 2.5f;
+    readonly float groundSpeed = 2.5f;
     float timeTillSpawn;
     readonly float targetTime = 2f;
 
@@ -16,11 +17,13 @@ public class MenuBackgroundMovement : MonoBehaviour
 
     void Update()
     {
+        // Moves anything with the "Sky" tag
         if (this.CompareTag("Sky")) transform.position = new Vector3(transform.position.x - skyMoveSpeed * Time.deltaTime, transform.position.y, transform.position.z);
 
+        // Moves anything with the "Ground" tag
         else if (this.CompareTag("Ground"))
         {
-            transform.position = new Vector3(transform.position.x - pipeGroundSpeed * Time.deltaTime, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x - groundSpeed * Time.deltaTime, transform.position.y, transform.position.z);
 
             timeTillSpawn += Time.deltaTime;
             if (timeTillSpawn >= targetTime)

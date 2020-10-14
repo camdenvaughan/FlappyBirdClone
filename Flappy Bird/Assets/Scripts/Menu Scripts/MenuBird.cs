@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class MenuBird : MonoBehaviour
 {
+    // Rigidbody component
     Rigidbody2D rb;
 
+    // Bird physics variables
     readonly float jumpForce = 5f;
     readonly float tiltSmooth = 1f;
     bool jump;
     float timeTillJump;
 
+    // Variables for handling rotation
     Quaternion downRotation;
     Quaternion forwardRotation;
 
@@ -19,8 +22,11 @@ public class MenuBird : MonoBehaviour
     void Start()
     {
         ResetTimer();
+
+        // Initilizes Rigidbody
         rb = GetComponent<Rigidbody2D>();
 
+        // Sets the rotation Variables
         downRotation = Quaternion.Euler(0f, 0f, -90f);
         forwardRotation = Quaternion.Euler(0f, 0f, 35f);
     }
@@ -34,12 +40,13 @@ public class MenuBird : MonoBehaviour
 
     }
 
+    // Called at a fixed interval, where physics calculations are held
     private void FixedUpdate()
     {
         Jump();
     }
 
-
+    // Adds velocity to the bird's rigidbody and relsets rotation when jump = true
     void Jump()
     {
         if (jump)
@@ -52,12 +59,13 @@ public class MenuBird : MonoBehaviour
     }
 
 
-
+    // Constantly rotates the bird down
     void Rotate()
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, downRotation, tiltSmooth * Time.deltaTime);
     }
 
+    // Timer to randomize the jumps of the bird in the menu
     void Timer()
     {
         timeTillJump -= Time.deltaTime;
@@ -67,11 +75,14 @@ public class MenuBird : MonoBehaviour
             ResetTimer();
         }
     }
+
+    // Resets the timer back to zero
     void ResetTimer()
     {
         timeTillJump = Random.Range(.2f, .8f);
     }
 
+    // Restricts the height of the bird in the menu to keep it visible
     void HeightLimiter()
     {
         if (transform.position.y >= 4.15f) ResetTimer();

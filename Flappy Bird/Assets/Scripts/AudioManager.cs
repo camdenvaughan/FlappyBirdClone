@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        // Initializes all of the sound clips
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -19,10 +20,11 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
+        // Plays main music
         Play("Song");
     }
 
-
+    // Public method that can be used to play sound effects
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
