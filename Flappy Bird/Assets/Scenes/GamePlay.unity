@@ -753,7 +753,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 120}
-  m_SizeDelta: {x: 335.60175, y: 901}
+  m_SizeDelta: {x: 479, y: 901}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1120745116
 Animator:
@@ -795,7 +795,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c93da741282c20c41b72608d37319da8, type: 3}
-    m_FontSize: 34
+    m_FontSize: 31
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -806,7 +806,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press "Space" to Fly!
+  m_Text: Press "Space" "Left Mouse" to Fly!
 --- !u!222 &1120745118
 CanvasRenderer:
   m_ObjectHideFlags: 0

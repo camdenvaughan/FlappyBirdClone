@@ -82,7 +82,7 @@ public class BirdController : MonoBehaviour
         }
 
         // Sets jump variable to true if space is pressed and bird is alive
-        if (Input.GetKeyDown(KeyCode.Space) && !dead)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !dead)
         {
             jump = true;
             FindObjectOfType<AudioManager>().Play("Flap");
